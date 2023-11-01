@@ -53,7 +53,14 @@ var node = g.selectAll(".node")
 node.append("title")
   .text(function(d) { return d.data.name + "\n" + d.value; });
 
-// Añade círculos a los nodos
+
+// Añade un título a los nodos
+node.filter(function(d) { return d.children; }).append("text")
+  .attr("y", function(d) { return -d.r*0.6; }) // Mueve el texto hacia arriba (hacia un valor negativo)
+  .text(function(d) { return d.data.name  });
+
+
+  // Añade círculos a los nodos
 node.append("circle")
   .attr("r", function(d) { return d.r; });
 
@@ -95,7 +102,7 @@ function processData(data) {
 // Función para construir la estructura del objeto JSON
 function buildJSONStructure(data) {
   const result = {
-    name: "flare",
+    name: "Incidentes",
     children: []
   };
 
