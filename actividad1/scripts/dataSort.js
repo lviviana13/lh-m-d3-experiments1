@@ -1,10 +1,12 @@
-data = d3.csv("https://raw.githubusercontent.com/lviviana13/lh-m-d3-experiments1/master/data/linea123.csv")
+let data = {}
+
+d3.csv("https://raw.githubusercontent.com/lviviana13/lh-m-d3-experiments1/master/data/linea123.csv")
     .then(databasic => {
         // Procesa los datos y calcula las cantidades
         const tipoIncidente = getTipoIncidente(databasic);
         // Construye la estructura del objeto JSON
-        const data = getTipoIncidente_data(tipoIncidente);
-        return data
+        data = getTipoIncidente_data(tipoIncidente);
+        render(data)
 
     })
     .catch(error => {
@@ -50,7 +52,6 @@ function sort(comparator) {
     render(data, comparator);
 }
 
-render(data);
 
 // Función para procesar los datos y calcular las cantidades
 function getTipoIncidente(data) {
