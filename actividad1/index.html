@@ -6,22 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Analisis Linea123</title>
     <link rel="stylesheet" href="styles.css">
+   
 </head>
 
 <body>
     <div>
         <h1>Análisis de Linea de Emergencias 123 - Bogotá</h1>
-        <a href="map/intento-bog.html">Bogta</a>
-        <a href="map/ejemplo-us.html">Us</a>
-        <a href="map/ejemplo-bogc.html">us-bog</a>
     </div>
+    
+     <!-- Grafica de circulos -->
+     <svg></svg>
 
-    <svg></svg>
-
+     <!-- Grafica de barras con interación -->
+    <div class="control-group">
+        <button onclick="sort(compareByExpense)">
+            Sort by Width
+        </button>
+        <button onclick="sort(compareByCategory)">
+            Sort by Category
+        </button>
+        <button onclick="sort()">
+            Clear
+        </button>
+    </div>
+    <!-- Scripts -->
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="scripts/incidente_genero.js"></script>
-
+    <script src="scripts/dataSort.js" ></script>
+   
 </body>
-
-
 </html>
