@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Mapa en D3.js</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+    <svg width="800" height="600"></svg>
+
+    <script>
+        // URL del archivo JSON del mapa (reemplaza con tu propia URL)
+        var jsonUrl = "https://raw.githubusercontent.com/lviviana13/lh-m-d3-experiments1/master/data/localidadestopo.json";
+
+        // Crea un lienzo SVG
+        var svg = d3.select("svg");
+
+        // Carga el archivo JSON
+        d3.json(jsonUrl)
+            .then(function(data) {
+                // Crea un generador de rutas para el mapa
+                var path = d3.geoPath();
+
+                // Dibuja las características geográficas
+                svg.selectAll("path")
+                    .data(topojson.feature(us, us.objects.localidadestopo).features)
+                    .enter()
+                    .append("path")
+                    .attr("d", path)
+                    .style("fill", "lightblue") // Establece el color de relleno
+                    .style("stroke", "gray");    // Establece el color del borde
+
+                // Puedes personalizar estilos y manipulación de datos según tus necesidades.
+            })
+            .catch(function(error) {
+                console.error("Error al cargar el archivo JSON:", error);
+            });
+    </script>
+</body>
+</html>
