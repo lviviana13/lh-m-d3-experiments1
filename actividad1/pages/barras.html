@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analisis Linea123</title>
+    <link rel="stylesheet" href="../styles.css">
+
+</head>
+
+<body>
+    <div>
+        <h1>Análisis de Linea de Emergencias 123 - Bogotá</h1>
+        <a href="../index.html">Inicio</a>
+    </div>
+    <hr>
+    <!-- Grafica de barras Edad -->
+    <div id="chart"></div>
+    <hr>
+    <!-- Grafica de barras con interación -->
+    <div class="control-group">
+        <button onclick="sort(compareByExpense)">
+            Ordenar por cantidad de casos
+        </button>
+        <button onclick="sort(compareByCategory)">
+            Ordenas por tipo de Incidente
+        </button>
+        <button onclick="sort()">
+            Limpiar
+        </button>
+    </div>
+   
+    <!-- Scripts -->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../scripts/dataSort.js"></script>
+
+</body>
+
+</html>

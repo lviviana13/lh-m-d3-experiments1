@@ -35,7 +35,7 @@ function render(data, comparator) {
         .data(data)
         .attr("class", "h-bar")
         .style("width", function (d) {
-            return (d.expense * 5) + "px";
+            return (d.expense * 7) + "px";
         })
         .select("span")
         .text(function (d) {
@@ -75,7 +75,7 @@ function getTipoIncidente_data(data) {
     const result = []
     for (const tipo in data) {
         const generoObject = {
-            expense: data[tipo] / 100,
+            expense: data[tipo] / 70,
             category: tipo
         };
         result.push(generoObject);
